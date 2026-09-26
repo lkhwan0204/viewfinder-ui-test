@@ -52,7 +52,7 @@ struct ExploreView: View {
 
                 content(frames)
 
-                ExploreTopBar(level: level, onLevel: setLevel, onProfile: { showProfile = true })
+                ExploreTopBar(level: level, onLevel: { setLevel($0) }, onProfile: { showProfile = true })
                     .opacity(model.chromeHidden ? 0 : 1)
                     .allowsHitTesting(!model.chromeHidden)
 
