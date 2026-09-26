@@ -142,7 +142,7 @@ struct FieldView: View {
         if location.isUsingFallback {
             HStack(spacing: 8) {
                 Image(systemName: "location.slash")
-                Text(location.isDenied ? "위치 권한이 꺼져 있어 서울 기준으로 안내해요" : "현재 위치를 찾는 중이에요 (서울 기준)")
+                Text(verbatim: location.isDenied ? "위치 권한이 꺼져 있어 서울 기준으로 안내해요" : "현재 위치를 찾는 중이에요 (서울 기준)")
             }
             .font(VF.Typeface.body(13))
             .foregroundStyle(Color.white.opacity(0.7))

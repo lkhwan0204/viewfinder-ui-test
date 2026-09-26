@@ -289,14 +289,15 @@ struct TargetResultsPanel: View {
     @Environment(AppModel.self) private var model
 
     var body: some View {
-        let title = matches.isEmpty ? "이 영역을 향한 프레임이 아직 없어요" : "이 영역을 향해 찍힌 자리 \(matches.count)곳"
+        let title: String = matches.isEmpty ? "이 영역을 향한 프레임이 아직 없어요" : "이 영역을 향해 찍힌 자리 \(matches.count)곳"
+        let subtitle: String = matches.isEmpty ? "영역을 조금 넓게 그려보세요" : "점선을 따라가면 서야 할 자리가 보여요"
         VStack(alignment: .leading, spacing: 12) {
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 3) {
                     Text(title)
                         .font(VF.Typeface.title(16))
                         .foregroundStyle(Color.white)
-                    Text(matches.isEmpty ? "영역을 조금 넓게 그려보세요" : "점선을 따라가면 서야 할 자리가 보여요")
+                    Text(subtitle)
                         .font(VF.Typeface.body(12))
                         .foregroundStyle(Color.white.opacity(0.6))
                 }
