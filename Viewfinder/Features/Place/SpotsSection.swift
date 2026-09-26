@@ -87,6 +87,7 @@ struct SpotMap: View {
                             color: frame.spotID == selectedSpotID ? VF.Palette.amber : Color.white
                         )
                     }
+                    .annotationTitles(.hidden)
                 }
                 ForEach(place.spots) { spot in
                     Annotation(spot.name, coordinate: spot.coordinate.clCoordinate, anchor: .center) {
@@ -95,11 +96,11 @@ struct SpotMap: View {
                             .frame(width: 10, height: 10)
                             .overlay(Circle().stroke(Color.black.opacity(0.5), lineWidth: 1))
                     }
+                    .annotationTitles(.hidden)
                 }
             }
         }
         .mapStyle(.standard(elevation: .flat, emphasis: .muted, pointsOfInterest: .excludingAll, showsTraffic: false))
-        .annotationTitles(.hidden)
         .environment(\.colorScheme, .dark)
         .overlay(alignment: .bottomLeading) {
             if place.sensitivity.isProtected {

@@ -203,6 +203,7 @@ struct SunDirectionMap: View {
                 Annotation(frame.caption, coordinate: frame.coordinate.clCoordinate, anchor: .center) {
                     ShotConeGlyph(fov: frame.camera.horizontalFOV, heading: frame.heading, size: 120, color: Color.white)
                 }
+                .annotationTitles(.hidden)
             }
             MapPolyline(coordinates: [spot.coordinate.clCoordinate, sunEnd.clCoordinate])
                 .stroke(
@@ -216,15 +217,16 @@ struct SunDirectionMap: View {
                     .padding(6)
                     .background(Circle().fill(Color.black.opacity(0.55)))
             }
+            .annotationTitles(.hidden)
             Annotation(spot.name, coordinate: spot.coordinate.clCoordinate, anchor: .center) {
                 Circle()
                     .fill(VF.Palette.amber)
                     .frame(width: 10, height: 10)
                     .overlay(Circle().stroke(Color.white, lineWidth: 2))
             }
+            .annotationTitles(.hidden)
         }
         .mapStyle(.standard(elevation: .flat, emphasis: .muted, pointsOfInterest: .excludingAll, showsTraffic: false))
-        .annotationTitles(.hidden)
         .environment(\.colorScheme, .dark)
         .overlay(alignment: .topLeading) {
             Text(verbatim: "━ 해의 방향   ◠ 프레임 시야")

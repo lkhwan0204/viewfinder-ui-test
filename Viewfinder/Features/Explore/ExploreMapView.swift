@@ -46,6 +46,7 @@ struct ExploreMapView: View {
                         .opacity(scatterPhase == .idle ? 1 : 0)
                         .onTapGesture { handleTap(cluster) }
                     }
+                    .annotationTitles(.hidden)
                 }
 
                 if let box = targetBox {
@@ -62,7 +63,6 @@ struct ExploreMapView: View {
             }
             .mapStyle(.standard(elevation: .flat, emphasis: .muted, pointsOfInterest: .excludingAll, showsTraffic: false))
             .mapControls { MapScaleView() }
-            .annotationTitles(.hidden)
             .onMapCameraChange(frequency: .onEnd) { context in
                 region = GeoRegion(context.region)
             }

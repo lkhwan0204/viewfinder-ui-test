@@ -133,9 +133,9 @@ struct ShotMiniMap: View {
                         .overlay(Circle().stroke(Color.white, lineWidth: 2))
                 }
             }
+            .annotationTitles(.hidden)
         }
         .mapStyle(.standard(elevation: .flat, emphasis: .muted, pointsOfInterest: .excludingAll, showsTraffic: false))
-        .annotationTitles(.hidden)
         .environment(\.colorScheme, .dark)
         .allowsHitTesting(false)
         .overlay(alignment: .topLeading) {
